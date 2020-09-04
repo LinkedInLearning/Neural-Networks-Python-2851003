@@ -1,5 +1,5 @@
-# COURSENAME
-This is the repository for the LinkedIn Learning course [COURSENAME]. The full course is available from [LinkedIn Learning](LICOURSEURL).
+# Training Neural Networks in Python
+This is the repository for the LinkedIn Learning course Training Neural Networks in Python. The full course is available from [LinkedIn Learning](LICOURSEURL).
 
 [![COURSENAME](COURSEIMAGE)](LICOURSEURL)
 
@@ -14,6 +14,8 @@ Some branches will have a beginning and an end state. These are marked with the 
 
 ## Installing
 1. To use these exercise files, you must have the following installed:
-	- [list of requirements for course]
+	- Python 3
+	- NumPy
+	- Tkinter
 2. Clone this repository into your local machine using the terminal (Mac), CMD (Windows), or a GUI tool like SourceTree.
-3. [Course-specific instructions]
+3. You may either edit the code in your favorite text editor and run from the command line, or you may use your favorite Python IDE. In the course videos you'll see the exercise files in Visual Studio Code.
