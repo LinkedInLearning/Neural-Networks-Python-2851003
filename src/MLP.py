@@ -38,9 +38,15 @@ class MultiLayerPerceptron:
         self.layers = np.array(layers,dtype=object)
         self.bias = bias
         self.network = [] # The list of lists of neurons
-        self.values = []  # The list of lists of output values        
-        
+        self.values = []  # The list of lists of output values
 
+        for i in range(len(self.layers)):
+            self.values.append([])
+            self.network.append([])
+            self.values[i] = [0.0 for j in range(self.layers[i])]
+            if i > 0:      #network[0] is the input layer, so it has no neurons
+                for j in range(self.layers[i]): 
+                    self.network[i].append(Perceptron(inputs = self.layers[i-1], bias = self.bias))
         
         self.network = np.array([np.array(x) for x in self.network],dtype=object)
         self.values = np.array([np.array(x) for x in self.values],dtype=object)
