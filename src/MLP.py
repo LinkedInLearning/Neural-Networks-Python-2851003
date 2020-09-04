@@ -50,3 +50,22 @@ class MultiLayerPerceptron:
         
         self.network = np.array([np.array(x) for x in self.network],dtype=object)
         self.values = np.array([np.array(x) for x in self.values],dtype=object)
+
+# Challenge: Finish the set_weights() and run() methods:
+
+    def set_weights(self, w_init):
+        # Write all the weights into the neural network.
+        # w_init is a list of floats. Organize it as you'd like.        
+
+    def printWeights(self):
+        print()
+        for i in range(1,len(self.network)):
+            for j in range(self.layers[i]):
+                print("Layer",i+1,"Neuron",j,self.network[i][j].weights)
+        print()
+
+    def run(self, x):
+        # Run an input forward through the neural network
+        # x is a python list with the input values.
+        return self.values[-1]
+        
