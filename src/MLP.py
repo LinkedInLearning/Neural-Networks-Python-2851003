@@ -118,22 +118,49 @@ class MultiLayerPerceptron:
 
 
 #test code
-mlp = MultiLayerPerceptron(layers=[2,2,1])
-print("\nTraining Neural Network as an XOR Gate...\n")
-for i in range(3000):
-    MSE = 0.0
-    MSE += mlp.bp([0,0],[0])
-    MSE += mlp.bp([0,1],[1])
-    MSE += mlp.bp([1,0],[1])
-    MSE += mlp.bp([1,1],[0])
-    MSE = MSE / 4
-    if(i%100 == 0):
-        print (MSE)
 
-mlp.printWeights()
-    
-print("MLP:")
-print ("0 0 = {0:.10f}".format(mlp.run([0,0])[0]))
-print ("0 1 = {0:.10f}".format(mlp.run([0,1])[0]))
-print ("1 0 = {0:.10f}".format(mlp.run([1,0])[0]))
-print ("1 1 = {0:.10f}".format(mlp.run([1,1])[0]))
+MSE = 0.0
+
+# Dataset for the 7 to 1 network
+for i in range(epochs):
+    MSE += mlp.bp([1,1,1,1,1,1,0],[0.05])    #0 pattern
+    MSE += mlp.bp([0,1,1,0,0,0,0],[0.15])    #1 pattern
+    MSE += mlp.bp([1,1,0,1,1,0,1],[0.25])    #2 pattern
+    MSE += mlp.bp([1,1,1,1,0,0,1],[0.35])    #3 pattern
+    MSE += mlp.bp([0,1,1,0,0,1,1],[0.45])    #4 pattern
+    MSE += mlp.bp([1,0,1,1,0,1,1],[0.55])    #5 pattern
+    MSE += mlp.bp([1,0,1,1,1,1,1],[0.65])    #6 pattern
+    MSE += mlp.bp([1,1,1,0,0,0,0],[0.75])    #7 pattern
+    MSE += mlp.bp([1,1,1,1,1,1,1],[0.85])    #8 pattern
+    MSE += mlp.bp([1,1,1,1,0,1,1],[0.95])    #9 pattern
+    MSE = MSE/10
+
+
+# Dataset for the 7 to 10 network
+for i in range(epochs):
+    MSE += mlp.bp([1,1,1,1,1,1,0],[1,0,0,0,0,0,0,0,0,0])    #0 pattern
+    MSE += mlp.bp([0,1,1,0,0,0,0],[0,1,0,0,0,0,0,0,0,0])    #1 pattern
+    MSE += mlp.bp([1,1,0,1,1,0,1],[0,0,1,0,0,0,0,0,0,0])    #2 pattern
+    MSE += mlp.bp([1,1,1,1,0,0,1],[0,0,0,1,0,0,0,0,0,0])    #3 pattern
+    MSE += mlp.bp([0,1,1,0,0,1,1],[0,0,0,0,1,0,0,0,0,0])    #4 pattern
+    MSE += mlp.bp([1,0,1,1,0,1,1],[0,0,0,0,0,1,0,0,0,0])    #5 pattern
+    MSE += mlp.bp([1,0,1,1,1,1,1],[0,0,0,0,0,0,1,0,0,0])    #6 pattern
+    MSE += mlp.bp([1,1,1,0,0,0,0],[0,0,0,0,0,0,0,1,0,0])    #7 pattern
+    MSE += mlp.bp([1,1,1,1,1,1,1],[0,0,0,0,0,0,0,0,1,0])    #8 pattern
+    MSE += mlp.bp([1,1,1,1,0,1,1],[0,0,0,0,0,0,0,0,0,1])    #9 pattern
+    MSE = MSE/10
+
+
+# Dataset for the 7 to 7 network
+for i in range(epochs):
+        MSE += mlp.bp([1,1,1,1,1,1,0],[1,1,1,1,1,1,0])    #0 pattern
+        MSE += mlp.bp([0,1,1,0,0,0,0],[0,1,1,0,0,0,0])    #1 pattern
+        MSE += mlp.bp([1,1,0,1,1,0,1],[1,1,0,1,1,0,1])    #2 pattern
+        MSE += mlp.bp([1,1,1,1,0,0,1],[1,1,1,1,0,0,1])    #3 pattern
+        MSE += mlp.bp([0,1,1,0,0,1,1],[0,1,1,0,0,1,1])    #4 pattern
+        MSE += mlp.bp([1,0,1,1,0,1,1],[1,0,1,1,0,1,1])    #5 pattern
+        MSE += mlp.bp([1,0,1,1,1,1,1],[1,0,1,1,1,1,1])    #6 pattern
+        MSE += mlp.bp([1,1,1,0,0,0,0],[1,1,1,0,0,0,0])    #7 pattern
+        MSE += mlp.bp([1,1,1,1,1,1,1],[1,1,1,1,1,1,1])    #8 pattern
+        MSE += mlp.bp([1,1,1,1,0,1,1],[1,1,1,1,0,1,1])    #9 pattern
+    MSE = MSE/10
