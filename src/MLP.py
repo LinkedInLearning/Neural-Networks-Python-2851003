@@ -15,3 +15,11 @@ class Perceptron:
         """Run the perceptron. x is a python list with the input values."""
         sum = np.dot(np.append(x,self.bias),self.weights)
         return self.sigmoid(sum)
+
+# Challenge: Finish the following methods:
+
+    def set_weights(self, w_init):
+        # w_init is a list of floats. Organize it as you'd like.
+
+    def sigmoid(self, x):
+        # return the output of the sigmoid function applied to x
