@@ -51,11 +51,12 @@ class MultiLayerPerceptron:
         self.network = np.array([np.array(x) for x in self.network],dtype=object)
         self.values = np.array([np.array(x) for x in self.values],dtype=object)
 
-# Challenge: Finish the set_weights() and run() methods:
-
     def set_weights(self, w_init):
-        # Write all the weights into the neural network.
-        # w_init is a list of floats. Organize it as you'd like.        
+        """Set the weights. 
+           w_init is a list of lists with the weights for all but the input layer."""
+        for i in range(len(w_init)):
+            for j in range(len(w_init[i])):
+                self.network[i+1][j].set_weights(w_init[i][j])
 
     def printWeights(self):
         print()
@@ -65,7 +66,25 @@ class MultiLayerPerceptron:
         print()
 
     def run(self, x):
-        # Run an input forward through the neural network
-        # x is a python list with the input values.
+        """Feed a sample x into the MultiLayer Perceptron."""
+        x = np.array(x,dtype=object)
+        self.values[0] = x
+        for i in range(1,len(self.network)):
+            for j in range(self.layers[i]):  
+                self.values[i][j] = self.network[i][j].run(self.values[i-1])
         return self.values[-1]
-        
+
+
+
+#test code
+mlp = MultiLayerPerceptron(layers=[2,2,1])  #mlp
+mlp.set_weights([[[-10,-10,15],[15,15,-10]],[[10,10,-15]]])
+mlp.printWeights()
+print("MLP:")
+print ("0 0 = {0:.10f}".format(mlp.run([0,0])[0]))
+print ("0 1 = {0:.10f}".format(mlp.run([0,1])[0]))
+print ("1 0 = {0:.10f}".format(mlp.run([1,0])[0]))
+print ("1 1 = {0:.10f}".format(mlp.run([1,1])[0]))
+
+
+
