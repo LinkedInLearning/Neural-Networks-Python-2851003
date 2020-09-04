@@ -25,12 +25,22 @@ class Perceptron:
         return 1/(1+np.exp(-x))
 
 
-#test code
-neuron = Perceptron(inputs=2)
-neuron.set_weights([15,15,-10]) #OR
 
-print("Gate:")
-print ("0 0 = {0:.10f}".format(neuron.run([0,0])))
-print ("0 1 = {0:.10f}".format(neuron.run([0,1])))
-print ("1 0 = {0:.10f}".format(neuron.run([1,0])))
-print ("1 1 = {0:.10f}".format(neuron.run([1,1])))
+class MultiLayerPerceptron:     
+    """A multilayer perceptron class that uses the Perceptron class above.
+       Attributes:
+          layers:  A python list with the number of elements per layer.
+          bias:    The bias term. The same bias is used for all neurons.
+          eta:     The learning rate."""
+
+    def __init__(self, layers, bias = 1.0):
+        """Return a new MLP object with the specified parameters.""" 
+        self.layers = np.array(layers,dtype=object)
+        self.bias = bias
+        self.network = [] # The list of lists of neurons
+        self.values = []  # The list of lists of output values        
+        
+
+        
+        self.network = np.array([np.array(x) for x in self.network],dtype=object)
+        self.values = np.array([np.array(x) for x in self.values],dtype=object)
