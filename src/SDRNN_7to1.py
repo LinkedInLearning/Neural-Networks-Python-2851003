@@ -1,7 +1,8 @@
 import MLP
 from MLP import MultiLayerPerceptron
 import tkinter as tk
- 
+import numpy as np
+
 sdrnn = MultiLayerPerceptron(layers=[7,7,1])  # MLP
 tepochs = 0
 
