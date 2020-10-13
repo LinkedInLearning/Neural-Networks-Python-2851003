@@ -3,7 +3,7 @@ This is the repository for the LinkedIn Learning course Training Neural Networks
 
 [![COURSENAME](COURSEIMAGE)](LICOURSEURL)
 
-[COURSEDESCRIPTION]
+Having a variety of great tools at your disposal isn’t helpful if you don’t know which one you really need, what each tool is useful for, and how they all work. In this course, take a deep dive into the innerworkings of neural networks, so that you're able to work more effectively with machine learning tools. Instructor Eduardo Corpeño helps you learn by example by providing a series of exercises in Python to help you to grasp what’s going on inside. Discover how to relate parts of a biological neuron to Python elements, which allows you to make a model of the brain. Then, learn how to build and train a network, as well as create a neural network that recognizes numbers coming from a seven-segment display. Even though you'll probably work with neural networks from a software suite rather than by writing your own code, the knowledge you’ll acquire in this course can help you choose the right neural network architecture and training method for each problem you face.
 
 ## Instructions
 This repository has branches for each of the videos in the course. You can use the branch pop up menu in github to switch to a specific branch and take a look at the course at that stage, or you can add `/tree/BRANCH_NAME` to the URL to go to the branch you want to access.
