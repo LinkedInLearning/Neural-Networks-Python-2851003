@@ -119,10 +119,10 @@ class MultiLayerPerceptron:
 
 #test code
 
-MSE = 0.0
 
 # Dataset for the 7 to 1 network
 for i in range(epochs):
+    MSE = 0.0
     MSE += mlp.bp([1,1,1,1,1,1,0],[0.05])    #0 pattern
     MSE += mlp.bp([0,1,1,0,0,0,0],[0.15])    #1 pattern
     MSE += mlp.bp([1,1,0,1,1,0,1],[0.25])    #2 pattern
@@ -138,6 +138,7 @@ for i in range(epochs):
 
 # Dataset for the 7 to 10 network
 for i in range(epochs):
+    MSE = 0.0
     MSE += mlp.bp([1,1,1,1,1,1,0],[1,0,0,0,0,0,0,0,0,0])    #0 pattern
     MSE += mlp.bp([0,1,1,0,0,0,0],[0,1,0,0,0,0,0,0,0,0])    #1 pattern
     MSE += mlp.bp([1,1,0,1,1,0,1],[0,0,1,0,0,0,0,0,0,0])    #2 pattern
@@ -153,14 +154,15 @@ for i in range(epochs):
 
 # Dataset for the 7 to 7 network
 for i in range(epochs):
-        MSE += mlp.bp([1,1,1,1,1,1,0],[1,1,1,1,1,1,0])    #0 pattern
-        MSE += mlp.bp([0,1,1,0,0,0,0],[0,1,1,0,0,0,0])    #1 pattern
-        MSE += mlp.bp([1,1,0,1,1,0,1],[1,1,0,1,1,0,1])    #2 pattern
-        MSE += mlp.bp([1,1,1,1,0,0,1],[1,1,1,1,0,0,1])    #3 pattern
-        MSE += mlp.bp([0,1,1,0,0,1,1],[0,1,1,0,0,1,1])    #4 pattern
-        MSE += mlp.bp([1,0,1,1,0,1,1],[1,0,1,1,0,1,1])    #5 pattern
-        MSE += mlp.bp([1,0,1,1,1,1,1],[1,0,1,1,1,1,1])    #6 pattern
-        MSE += mlp.bp([1,1,1,0,0,0,0],[1,1,1,0,0,0,0])    #7 pattern
-        MSE += mlp.bp([1,1,1,1,1,1,1],[1,1,1,1,1,1,1])    #8 pattern
-        MSE += mlp.bp([1,1,1,1,0,1,1],[1,1,1,1,0,1,1])    #9 pattern
+    MSE = 0.0
+    MSE += mlp.bp([1,1,1,1,1,1,0],[1,1,1,1,1,1,0])    #0 pattern
+    MSE += mlp.bp([0,1,1,0,0,0,0],[0,1,1,0,0,0,0])    #1 pattern
+    MSE += mlp.bp([1,1,0,1,1,0,1],[1,1,0,1,1,0,1])    #2 pattern
+    MSE += mlp.bp([1,1,1,1,0,0,1],[1,1,1,1,0,0,1])    #3 pattern
+    MSE += mlp.bp([0,1,1,0,0,1,1],[0,1,1,0,0,1,1])    #4 pattern
+    MSE += mlp.bp([1,0,1,1,0,1,1],[1,0,1,1,0,1,1])    #5 pattern
+    MSE += mlp.bp([1,0,1,1,1,1,1],[1,0,1,1,1,1,1])    #6 pattern
+    MSE += mlp.bp([1,1,1,0,0,0,0],[1,1,1,0,0,0,0])    #7 pattern
+    MSE += mlp.bp([1,1,1,1,1,1,1],[1,1,1,1,1,1,1])    #8 pattern
+    MSE += mlp.bp([1,1,1,1,0,1,1],[1,1,1,1,0,1,1])    #9 pattern
     MSE = MSE/10
