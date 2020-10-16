@@ -72,9 +72,9 @@ def default_btn(event):
 
 def train_callback():
     global tepochs
-    MSE = 0.0
     epochs = int(entry_epochs.get())
     for i in range(epochs):
+        MSE = 0.0
         MSE += sdrnn.bp([1,1,1,1,1,1,0],[0.05])    #0 pattern
         MSE += sdrnn.bp([0,1,1,0,0,0,0],[0.15])    #1 pattern
         MSE += sdrnn.bp([1,1,0,1,1,0,1],[0.25])    #2 pattern
